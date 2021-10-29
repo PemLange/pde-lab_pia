@@ -10,6 +10,7 @@
 #include <dune/pdelab/finiteelementmap/rt0cube2dfem.hh>
 #include <dune/pdelab/finiteelementmap/rt1cube2dfem.hh>
 #include <dune/pdelab/finiteelementmap/rt2cube2dfem.hh>
+#include <dune/pdelab/finiteelementmap/rt0simplex3dfem.hh>
 #include <dune/pdelab/finiteelementmap/rt0cube3dfem.hh>
 #include <dune/pdelab/finiteelementmap/rt1cube3dfem.hh>
 
@@ -70,6 +71,13 @@ namespace Dune {
       };
 
 
+     template<typename GV, typename D, typename R>
+      struct RaviartThomasLocalFiniteElementMapBaseSelector<GV,3,GeometryType::simplex,D,R,0>
+      {
+        typedef RT0Simplex3DLocalFiniteElementMap<GV,D,R> type;
+      };
+      
+      
       template<typename GV, typename D, typename R>
       struct RaviartThomasLocalFiniteElementMapBaseSelector<GV,3,GeometryType::cube,D,R,0>
       {
